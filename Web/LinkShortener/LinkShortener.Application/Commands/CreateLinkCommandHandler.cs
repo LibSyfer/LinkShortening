@@ -25,7 +25,7 @@ namespace LinkShortener.Application.Commands
                 SourceLink = request.SourceLink
             };
 
-            return _linkRepository.CreateAsync(link);
+            return _linkRepository.CreateAsync(link, cancellationToken);
         }
     }
 }

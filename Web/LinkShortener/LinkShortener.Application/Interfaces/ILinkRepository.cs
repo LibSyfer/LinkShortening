@@ -4,10 +4,10 @@ namespace LinkShortener.Application.Interfaces
 {
     public interface ILinkRepository
     {
-        Task<IEnumerable<Link>> GetAllAsync();
+        Task<IEnumerable<Link>> GetAllAsync(CancellationToken cancellationToken = default);
 
-        Task<Link?> GetByIdAsync(string id);
+        Task<Link?> GetByIdAsync(string id, CancellationToken cancellationToken = default);
 
-        Task<string> CreateAsync(Link link);
+        Task<string> CreateAsync(Link link, CancellationToken cancellationToken = default);
     }
 }
