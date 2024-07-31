@@ -10,6 +10,10 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["LinkShortener.API/LinkShortener.API.csproj", "LinkShortener.API/"]
+COPY ["LinkShortener.Application/LinkShortener.Application.csproj", "LinkShortener.Application/"]
+COPY ["LinkShortener.Domain/LinkShortener.Domain.csproj", "LinkShortener.Domain/"]
+COPY ["LinkShortener.Infrastructure/LinkShortener.Infrastructure.csproj", "LinkShortener.Infrastructure/"]
+COPY ["LinkShortener.Persistence/LinkShortener.Persistence.csproj", "LinkShortener.Persistence/"]
 RUN dotnet restore "./LinkShortener.API/LinkShortener.API.csproj"
 COPY . .
 WORKDIR "/src/LinkShortener.API"
