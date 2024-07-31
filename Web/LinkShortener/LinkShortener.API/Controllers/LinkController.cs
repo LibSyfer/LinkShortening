@@ -45,7 +45,7 @@ namespace LinkShortener.API.Controllers
                 return BadRequest();
             }
 
-            return CreatedAtAction(nameof(GetByIdAync), createdLinkId);
+            return CreatedAtAction(nameof(GetByIdAync), new { id = createdLinkId }, createdLinkId);
 
         }
 
