@@ -4,7 +4,7 @@ using MediatR;
 
 namespace LinkShortener.Application.Queries
 {
-    public class GetLinkByIdQueryHandler : IRequestHandler<GetLinkByIdQuery, Link?>
+    public class GetLinkByIdQueryHandler : IRequestHandler<GetLinkByIdQuery, string?>
     {
         private readonly ILinkRepository _linkRepository;
 
@@ -13,9 +13,10 @@ namespace LinkShortener.Application.Queries
             _linkRepository = linkRepository;
         }
 
-        public Task<Link?> Handle(GetLinkByIdQuery request, CancellationToken cancellationToken)
+        public async Task<string?> Handle(GetLinkByIdQuery request, CancellationToken cancellationToken)
         {
-            return _linkRepository.GetByIdAsync(request.Id, cancellationToken);
+            var link = await _linkRepository.GetByIdAsync(request.Id, cancellationToken);
+            return link?.SourceLink;
         }
     }
 }

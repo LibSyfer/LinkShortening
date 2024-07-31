@@ -3,5 +3,5 @@ using MediatR;
 
 namespace LinkShortener.Application.Queries
 {
-    public record GetLinkByIdQuery(string Id) : IRequest<Link?>;
+    public record GetLinkByIdQuery(string Id) : IRequest<string?>;
 }

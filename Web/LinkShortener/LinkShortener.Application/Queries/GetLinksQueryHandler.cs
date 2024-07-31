@@ -1,10 +1,9 @@
 ﻿using LinkShortener.Application.Interfaces;
-using LinkShortener.Domain.Entities;
 using MediatR;
 
 namespace LinkShortener.Application.Queries
 {
-    public class GetLinksQueryHandler : IRequestHandler<GetLinksQuery, IEnumerable<Link>>
+    public class GetLinksQueryHandler : IRequestHandler<GetLinksQuery, IEnumerable<string>>
     {
         private readonly ILinkRepository _linkRepository;
 
@@ -13,9 +12,10 @@ namespace LinkShortener.Application.Queries
             _linkRepository = linkRepository;
         }
 
-        public Task<IEnumerable<Link>> Handle(GetLinksQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<string>> Handle(GetLinksQuery request, CancellationToken cancellationToken)
         {
-            return _linkRepository.GetAllAsync(cancellationToken);
+            var links = await _linkRepository.GetAllAsync(cancellationToken);
+            return links.Select(e => e.SourceLink).AsEnumerable();
         }
     }
 }

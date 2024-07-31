@@ -1,7 +1,6 @@
-﻿using LinkShortener.Domain.Entities;
-using MediatR;
+﻿using MediatR;
 
 namespace LinkShortener.Application.Queries
 {
-    public record GetLinksQuery : IRequest<IEnumerable<Link>>;
+    public record GetLinksQuery : IRequest<IEnumerable<string>>;
 }

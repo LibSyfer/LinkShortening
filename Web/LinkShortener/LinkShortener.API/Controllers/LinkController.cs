@@ -58,13 +58,13 @@ namespace LinkShortener.API.Controllers
         [ActionName(nameof(GetByIdAync))]
         public async Task<ActionResult> GetByIdAync(string id)
         {
-            var link = await _mediator.Send(new GetLinkByIdQuery(id));
-            if (link == null)
+            var sourceLink = await _mediator.Send(new GetLinkByIdQuery(id));
+            if (sourceLink == null)
             {
                 return NotFound();
             }
 
-            return Ok(link);
+            return Ok(sourceLink);
         }
     }
 }
