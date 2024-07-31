@@ -1,6 +1,11 @@
+using LinkShortener.Application;
+using LinkShortener.Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddApplicationDependencies();
+builder.Services.AddDataProvider();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
