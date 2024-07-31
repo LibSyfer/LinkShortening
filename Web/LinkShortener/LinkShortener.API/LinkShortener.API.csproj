@@ -13,4 +13,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LinkShortener.Application\LinkShortener.Application.csproj" />
+    <ProjectReference Include="..\LinkShortener.Infrastructure\LinkShortener.Infrastructure.csproj" />
+    <ProjectReference Include="..\LinkShortener.Persistence\LinkShortener.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>
