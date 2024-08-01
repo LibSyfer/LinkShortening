@@ -1,8 +1,6 @@
 using LinkShortener.Application;
 using LinkShortener.Persistence;
 
-string test = "test";
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
