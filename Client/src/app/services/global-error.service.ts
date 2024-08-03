@@ -23,9 +23,7 @@ export class GlobalErrorService {
   }
 
   private removeFirstError() {
-    console.log(this.errors)
     this.errors.shift();
-    console.log(this.errors)
     this.errorsSubject$.next([...this.errors]);
   }
 }

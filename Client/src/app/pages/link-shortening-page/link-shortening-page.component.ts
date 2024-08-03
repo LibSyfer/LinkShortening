@@ -29,7 +29,7 @@ export class LinkShorteningPageComponent {
 
 	public GetLink(): void {
 		this.redirectionLinkService.CreateLink(this.sourceUrl).subscribe(response => {
-      this.shortUrl = window.location.href + response.id;
+      		this.shortUrl = window.location.href + response.id;
 			this.returnMessage = this.shortUrl;
 		});
 	}

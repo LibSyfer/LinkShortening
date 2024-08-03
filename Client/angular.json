@@ -77,6 +77,18 @@
               "buildTarget": "Client:build:development"
             }
           },
+          "defaultConfiguration": "development"
+        },
+        "proxyserve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "Client:build:production"
+            },
+            "development": {
+              "buildTarget": "Client:build:development"
+            }
+          },
           "defaultConfiguration": "development",
           "options": {
             "proxyConfig": "src/proxy.conf.json"
