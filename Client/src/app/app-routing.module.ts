@@ -5,9 +5,9 @@ import { LinkShorteningRedirectionPageComponent } from './pages/link-shortening-
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 const routes: Routes = [
-  { path: "not-found", title: "Not found", component: NotFoundPageComponent },
   { path: "", title: "Link shortening", component: LinkShorteningPageComponent },
-  { path: ":id", component: LinkShorteningRedirectionPageComponent }
+  { path: "not-found", title: "Not found", component: NotFoundPageComponent },
+  { path: ":id", title: "Redirection", component: LinkShorteningRedirectionPageComponent }
 ];
 
 @NgModule({
