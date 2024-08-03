@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LinkShorteningPageComponent } from './pages/link-shortening-page/link-shortening-page.component';
 import { LinkShorteningRedirectionPageComponent } from './pages/link-shortening-redirection-page/link-shortening-redirection-page.component';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LinkShorteningPageComponent,
-    LinkShorteningRedirectionPageComponent
+    LinkShorteningRedirectionPageComponent,
+    NotFoundPageComponent
   ],
   imports: [
     BrowserModule,
