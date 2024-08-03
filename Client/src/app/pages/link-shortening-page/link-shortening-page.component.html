@@ -1,0 +1,29 @@
+<div class="flex justify-center items-center h-screen my-0 bg-gray-100">
+    <div class="fixed top-1/3 text-gray-800">
+        <div>
+            <h1 class="text-center text-2xl pb-2">Link shortening</h1>
+            <div>
+                <form [formGroup]="form">
+                    <input type="url" formControlName="url" [(ngModel)]="sourceUrl" class="flex-1 text-lg text-gray-800 px-3 py-1 border border-r-0 border-gray-400 hover:border-gray-500 rounded-lg rounded-r-none outline-none" />
+                    <button type="submit" [disabled]="form.invalid" (click)="GetLink()" class="text-lg px-3 py-1 text-neutral-100 hover:text-gray-50 bg-orange-400 hover:bg-orange-500 border border-gray-400 rounded-r-lg">Get link</button>
+                </form>
+            </div>
+        </div>
+        @if (form.get('url')?.invalid && (form.get('url')?.dirty || form.get('url')?.touched)) {
+            <div class="px-3 text-red-500">
+                @if (form.get('url')?.errors?.['pattern']) {
+                    <div>Invalid URL format.</div>
+                }
+            </div>
+        }
+    </div>
+    <div class="block">
+        @if(returnMessage) {
+            <div class="flex justify-center">
+                <div class="bg-white border border-gray-400 px-2 py-1 rounded-md mt-4">
+                    <button (click)="CopyToBufferr()" class=" inline text-center text-gray-800">{{returnMessage}}</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>

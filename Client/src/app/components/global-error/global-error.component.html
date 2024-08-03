@@ -1,0 +1,7 @@
+@if (errors$ | async; as errors) {
+    <div class="absolute right-1 bottom-1">
+        @for (error of errors; track $index) {
+            <p class="text-red-700 bg-white border border-gray-400 px-1 rounded-lg m-1"><span class="font-bold">Error:</span> {{error}}</p>
+        }
+    </div>
+}
