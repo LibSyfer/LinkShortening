@@ -1,0 +1,35 @@
+services:
+  gateway:
+    image: libsyfer/linkshortening-gateway:latest
+    build:
+      context: ./Gateway/
+      dockerfile: ./Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - frontend
+      - api
+    networks:
+      - base
+
+  frontend:
+    image: libsyfer/linkshortening-frontend:latest
+    build:
+      context: ./Client/
+      dockerfile: ./Dockerfile
+    networks:
+      - base
+
+  api:
+    image: libsyfer/linkshortening-backend:latest
+    build:
+      context: ./Web/LinkShortener/
+      dockerfile: ./LinkShortener.API/Dockerfile
+    ports:
+      - "5000:80"
+    networks:
+      - base
+
+networks:
+  base:
+
